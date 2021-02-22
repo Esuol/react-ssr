@@ -4,6 +4,8 @@
     "target": "es2018",
     "noImplicitAny": false,
     "noImplicitThis": false,
+    // 不生成文件，只做类型检查
+    "noEmit": true,  
     "sourceMap": true,
     "lib": ["es7", "dom"],
     "moduleResolution": "node",

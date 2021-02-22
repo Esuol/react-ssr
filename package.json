@@ -4,18 +4,19 @@
   "description": "react ssr ",
   "main": "index.js",
   "scripts": {
+    "type-check": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.12.17",
     "@types/node": "^14.14.31",
     "axios": "^0.21.1",
-    "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
     "react": "^17.0.1",
