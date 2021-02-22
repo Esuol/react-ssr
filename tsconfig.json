@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2018",
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "sourceMap": true,
+    "lib": ["es7", "dom"],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "allowJs": true,
+    "baseUrl": "./",
+    "jsx": "react",
+    "paths": {
+      "*": ["src/components/*", "src/*", "./*"],
+      "src": ["src"]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@terminus"
+    ],
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": ["node_modules", "public",],
+  "include": ["src/components", "src"]
+}
