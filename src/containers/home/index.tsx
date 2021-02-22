@@ -46,5 +46,9 @@ const mapDispatch = dispatch => ({
   }
 });
 
-export default connect(mapState, mapDispatch)(WithStyles(Home, styles));
+const ExportHome =  connect(mapState, mapDispatch)(WithStyles(Home, styles));
+
+ExportHome.loadData = store => store.dispatch(getHomeList());
+
+export default ExportHome;
 
