@@ -7,6 +7,13 @@ import routes from '../Routes';
 const path = require('path');
 const process = require('process');
 
+type Context = {
+  css: any[];
+  action?: string;
+  url?: string;
+  NOT_FOUND?: any
+}
+
 const app = express();
 app.use(express.static('public'));
 
@@ -36,4 +43,20 @@ app.get('*', (req, res) => {
       promises.push(promise);
     }
   })
+  Promise.all(promises).then(() => {
+    const context: Context = { css: [] };
+    const html = render(store, routes, req, context);
+    if(context.action === 'REPLACE') {
+      res.redirect(301, context.url)
+    } else if(context.NOT_FOUND) {
+      res.status(404);
+			res.send(html);
+    } else {
+      res.send(html);
+    }
+  }).catch((e) => {
+    console.log('error', e)
+  })
 })
+
+const server = app.listen(9002);
