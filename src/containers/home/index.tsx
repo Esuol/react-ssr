@@ -30,7 +30,7 @@ const Home: React.FC<Props> = (props: Props) => {
         <meta name="description" content="新闻页面 - 丰富多彩的资讯" />
       </Helmet>
       <div className={styles.container}>
-				{getList()}
+				{getList}
 			</div>
     </React.Fragment>
   )

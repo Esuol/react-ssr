@@ -21,9 +21,9 @@ const Header: React.FC<Props> = (props: Props) => {
         login
         ? <React.Fragment>
            	<Link to='/translation' className={styles.item}>翻译列表</Link>
-						<div onClick={handleLogout} className={styles.item}>退出</div>
+						<span onClick={handleLogout} className={styles.item}>退出</span>
         </React.Fragment>
-        :<div onClick={handleLogin} className={styles.item}>登陆</div>
+        :<span onClick={handleLogin} className={styles.item}>登陆</span>
       }
     </div>
   );

@@ -32,12 +32,12 @@ app.get('*', (req, res) => {
   const promises = [];
 
   matchedRoutes.forEach(item => {
-    if(item.route.loadData) {
+    if(item.loadData) {
       const promise = new Promise((resolve, reject) => {
-        item.route.loadData(store)
+        item.loadData(store)
           .then(resolve)
           .catch(e => {
-            console.log(`${item.route.path}error`, e);
+            console.log(`${item.getList.path}error`, e);
           })
       })
       promises.push(promise);
