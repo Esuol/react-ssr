@@ -1,12 +1,14 @@
 const path = require("path");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const config = require('./webpack.base');
 
 const clientConfig = {
   mode: "development",
-  entry: "./src/client/index.ts",
-  node: {
-    fs: "empty"
+  entry: "./src/client/index.tsx",
+  resolve: {
+    fallback: {
+      path: require.resolve("path-browserify")
+    }
   },
   output: {
     filename: "index.js",
@@ -22,8 +24,7 @@ const clientConfig = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              modules: true,
-              localIdentName: '[name]_[local]_[hash:base64:5]'
+              modules: true
             }
           }
         ]

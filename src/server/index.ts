@@ -3,8 +3,8 @@ import proxy from 'express-http-proxy';
 import { matchRoutes } from 'react-router-config';
 import { render } from './utils';
 import { getServerStore } from '../store';
-import routes from '../Routes';
-const path = require('path');
+import routes from '../routes';
+// const path = require('path');
 const process = require('process');
 
 type Context = {
