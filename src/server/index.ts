@@ -32,16 +32,12 @@ app.get('*', (req, res) => {
   const promises = [];
 
   matchedRoutes.forEach(item => {
-    if(item.loadData) {
-      const promise = new Promise((resolve, reject) => {
-        item.loadData(store)
-          .then(resolve)
-          .catch(e => {
-            console.log(`${item.getList.path}error`, e);
-          })
-      })
-      promises.push(promise);
-    }
+    if (item.route.loadData) {
+			const promise = new Promise((resolve, reject) => {
+        resolve(item.route.loadData(store))
+			})
+			promises.push(promise);
+		}
   })
   Promise.all(promises).then(() => {
     const context: Context = { css: [] };

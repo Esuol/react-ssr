@@ -20,7 +20,7 @@ const Header: React.FC<Props> = (props: Props) => {
       {
         login
         ? <React.Fragment>
-           	<Link to='/translation' className={styles.item}>翻译列表</Link>
+           	<Link to='/songs' className={styles.item}>歌曲列表</Link>
 						<span onClick={handleLogout} className={styles.item}>退出</span>
         </React.Fragment>
         :<span onClick={handleLogin} className={styles.item}>登陆</span>
@@ -37,7 +37,7 @@ const mapDispatch = dispatch => ({
   handleLogin () {
     dispatch(actions.login())
   },
-  handleLogoit() {
+  handleLogout() {
     dispatch(actions.logout())
   }
 });
