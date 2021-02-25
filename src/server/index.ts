@@ -34,7 +34,15 @@ app.get('*', (req, res) => {
   matchedRoutes.forEach(item => {
     if (item.route.loadData) {
 			const promise = new Promise((resolve, reject) => {
-        resolve(item.route.loadData(store))
+        console.log('>>>>item.route.loadData(store))>>',item.route.loadData(store) )
+        if(item.route.loadData instanceof Promise) {
+          console.log('onnn')
+          item.route.loadData(store)
+            .then(resolve)
+            .catch(e => console.log('error', e))
+        } else {
+          resolve(item.route.loadData(store));
+        }
 			})
 			promises.push(promise);
 		}
